@@ -1,5 +1,6 @@
 zombie game c++ sfml
-features and game mechanics :
+features and game mechanics git add .
+git commit -m " addj:
 •A Heads Up Display (HUD) that shows details such as the score, high score,
 and bullets in clip, the number of bullets left, player health, and the number
 of zombies left to kill.
