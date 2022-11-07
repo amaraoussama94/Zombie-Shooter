@@ -45,11 +45,9 @@ Time Player::getLastHitTime()
     }
 /*without the restriction  function hit provides, a zombie would 
 only need to be in contact with the player for one
-second and tens of thousands of health points would be deducted*/
+second and tens of thousands of healt5ad than the time stored in m_LastHit.*/
 bool Player::hit(Time timeHit)
     {
-    //checks to see whether the time that's passed in as a parameter 
-    //is 200 milliseconds further ahead than the time stored in m_LastHit.
         if (timeHit.asMilliseconds()- m_LastHit.asMilliseconds() > 200) 
             {
                 m_LastHit = timeHit;
@@ -66,7 +64,7 @@ FloatRect Player::getPosition()
     {
         return m_Sprite.getGlobalBounds();
     }
-
+    
 Vector2f Player::getCenter()
     {
         return m_Position;
@@ -95,8 +93,8 @@ void Player::moveLeft()
 void Player::moveRight()
     {
         m_RightPressed = true;
-    }
 
+    }
 void Player::moveUp()
     {
         m_UpPressed = true;

@@ -207,6 +207,7 @@ int main()
                     {
                     }
                 window.display();
+                window.draw(player );
 
             }// End game loop
 
