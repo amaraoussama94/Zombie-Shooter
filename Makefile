@@ -1,10 +1,10 @@
 #main app
-Zombie:Player.o   Zombie.o 
-	g++ Player.o Zombie.o -o  -lsfml-graphics -lsfml-window -lsfml-audio -lsfml-system  
+Zombie:Player.o   ZombieArena.o 
+	g++ Player.o ZombieArena.o -o  -lsfml-graphics -lsfml-window -lsfml-audio -lsfml-system  
 
 
-Pong.o:Zombie.cpp
-	g++ -c Zombie.cpp
+Pong.o:ZombieArena.cpp
+	g++ -c ZombieArena.cpp
 
  
 #Player class 
