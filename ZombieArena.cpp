@@ -1,4 +1,5 @@
 #include "Player.hpp"
+#include "ZombieArena.hpp"
 #include <SFML/Graphics.hpp>
 
 //using namespace sf;
@@ -20,7 +21,7 @@ int main()
         View mainView(sf::FloatRect(0, 0,resolution.x, resolution.y));/*************************************/
         // Here is our clock for timing everything
         Clock clock;
-        // How long has the PLAYING state been active
+        // How long has the PLAYING state ²been active
         Time gameTimeTotal;
         // Where is the mouse in
         // relation to world coordinates
@@ -33,6 +34,13 @@ int main()
         // The boundaries of the arena
         IntRect arena;
         // The main game loop
+
+        // Create the background
+        VertexArray background;
+        // Load the texture for our background vertex array
+        Texture textureBackground;
+        textureBackground.loadFromFile("graphics/background_sheet.png");
+
         while (window.isOpen())
             {
                 /*
@@ -148,8 +156,11 @@ int main()
                                 arena.height = 500;
                                 arena.left = 0;
                                 arena.top = 0;
+                                // Pass the vertex array by reference
+                                // to the createBackground function
+                                int tileSize = createBackground(background, arena);
                                 // We will modify this line of code later
-                                int tileSize = 50;
+                                //int tileSize = 50;
                                 // Spawn the player in the middle of the arena
                                 player.spawn(arena, resolution, tileSize);
                                 // Reset the clock so there isn't a frame jump
@@ -192,6 +203,10 @@ int main()
                         // set the mainView to be displayed in the window
                         // And draw everything related to it
                         window.setView(mainView);
+
+                        // Draw the background
+                        window.draw(background, &textureBackground);
+
                         // Draw the player
                         window.draw(player.getSprite());
                     }
