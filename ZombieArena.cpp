@@ -12,8 +12,8 @@ int main()
 
         // create an SFML window
         Vector2f resolution;
-        resolution.x =VideoMode::getDesktopMode().width;
-        resolution.y =VideoMode::getDesktopMode().height;
+        resolution.x =1024;//VideoMode::getDesktopMode().width
+        resolution.y =768;//VideoMode::getDesktopMode().height
         RenderWindow window(VideoMode(resolution.x, resolution.y),"Zombie Arena");//, Style::Fullscreen  for full screen mode 
         // Create a an SFML View for the main action
         View mainView(sf::FloatRect(0, 0,resolution.x, resolution.y));
