@@ -1,8 +1,7 @@
 zombie game c++ sfml
-features and game mechanics git add .
-git commit -m " addj:
+features and game mechanics :
 •A Heads Up Display (HUD) that shows details such as the score, high score,
-and bullets in clip, the number of bullets left, player health, and the number
+and bu#llets in clip, the number of bullets left, player health, and the number
 of zombies left to kill.
 •The player will shoot zombies while frantically running away from them.
 •Move around a scrolling world using the WASD keyboard keys while aiming
