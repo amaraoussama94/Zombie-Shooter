@@ -15,10 +15,9 @@ int main()
         resolution.x =VideoMode::getDesktopMode().width;
         resolution.y =VideoMode::getDesktopMode().height;
         // Create a video mode object
-        VideoMode  vm(1024, 768);/******************/
-        RenderWindow window(vm,"Zombie Arena");//, Style::Fullscreen  for full screen mode 
+        RenderWindow window(VideoMode(resolution.x, resolution.y),"Zombie Arena");// Style::Fullscreen
         // Create a an SFML View for the main action
-        View mainView(sf::FloatRect(0, 0,1024, 768));/*************************************/
+        View mainView(sf::FloatRect(0, 0,resolution.x, resolution.y));/*************************************/
         // Here is our clock for timing everything
         Clock clock;
         // How long has the PLAYING state been active
@@ -40,9 +39,8 @@ int main()
                 ************
                 Handle input
                 ************
-                */
-                // Handle events by polling
-                Event event;
+                */                
+                Event event;  
                 while (window.pollEvent(event))
                     {
                         if (event.type == Event::KeyPressed)
@@ -52,7 +50,8 @@ int main()
                                     {
                                         state = State::PAUSED;
                                     }
-                                // Restart while paused
+                                // Restart while pausedresolution.x, resolution.y
+                                        // Reset the clock so there isn't a frame jump
                                 else if (event.key.code == Keyboard::Return &&state == State::PAUSED)
                                     {
                                         state = State::PLAYING;
@@ -114,10 +113,9 @@ int main()
                                 player.stopRight();
                             }
                     }// End ZQSD while playing
-                // Handle the LEVELING up state
+                // Handle the LEVELING up
                 if (state == State::LEVELING_UP)
-                    {
-                        // Handle the player LEVELING up
+                    {                 
                         if (event.key.code == Keyboard::Num1)
                             {
                                 state = State::PLAYING;
@@ -207,7 +205,6 @@ int main()
                     {
                     }
                 window.display();
-                window.draw(player );
 
             }// End game loop
 
