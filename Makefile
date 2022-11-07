@@ -1,18 +1,15 @@
 #main app
-Pong:Pong.o  Bat.o Ball.o
-	g++ Pong.o Bat.o Ball.o -o Pong -lsfml-graphics -lsfml-window -lsfml-audio -lsfml-system  
+Zombie:Player.o   Zombie.o 
+	g++ Player.o Zombie.o -o  -lsfml-graphics -lsfml-window -lsfml-audio -lsfml-system  
 
 
-Pong.o:Pong.cpp
-	g++ -c Pong.cpp
+Pong.o:Zombie.cpp
+	g++ -c Zombie.cpp
 
-#Bat class 
-Bat.o:Bat.cpp
-	g++ -c Bat.cpp
-
-#Ball class 
-Ball.o:Ball.cpp
-	g++ -c Ball.cpp
+ 
+#Player class 
+Player.o:Player.cpp
+	g++ -c Player.cpp
 
 clean:
 #cleanup all object file
