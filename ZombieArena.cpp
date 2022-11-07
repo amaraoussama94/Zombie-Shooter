@@ -12,11 +12,13 @@ int main()
 
         // create an SFML window
         Vector2f resolution;
-        resolution.x =1024;//VideoMode::getDesktopMode().width
-        resolution.y =768;//VideoMode::getDesktopMode().height
-        RenderWindow window(VideoMode(resolution.x, resolution.y),"Zombie Arena");//, Style::Fullscreen  for full screen mode 
+        resolution.x =VideoMode::getDesktopMode().width;
+        resolution.y =VideoMode::getDesktopMode().height;
+        // Create a video mode object
+        VideoMode  vm(1024, 768);/******************/
+        RenderWindow window(vm,"Zombie Arena");//, Style::Fullscreen  for full screen mode 
         // Create a an SFML View for the main action
-        View mainView(sf::FloatRect(0, 0,resolution.x, resolution.y));
+        View mainView(sf::FloatRect(0, 0,1024, 768));/*************************************/
         // Here is our clock for timing everything
         Clock clock;
         // How long has the PLAYING state been active
@@ -74,7 +76,8 @@ int main()
                     {
                         window.close();
                     }
-                // Handle WASD while playing
+                    
+                // Handle ZQSD while playing
                 if (state == State::PLAYING)
                     {
                         // Handle the pressing and releasing of the ZQSD keys
@@ -110,7 +113,51 @@ int main()
                             {
                                 player.stopRight();
                             }
-                    }// End WASD while playing
+                    }// End ZQSD while playing
+                // Handle the LEVELING up state
+                if (state == State::LEVELING_UP)
+                    {
+                        // Handle the player LEVELING up
+                        if (event.key.code == Keyboard::Num1)
+                            {
+                                state = State::PLAYING;
+                            }
+                        if (event.key.code == Keyboard::Num2)
+                            {
+                                state = State::PLAYING;
+                            }
+                        if (event.key.code == Keyboard::Num3)
+                            {
+                                state = State::PLAYING;
+                            }
+                        if (event.key.code == Keyboard::Num4)
+                            {
+                                state = State::PLAYING;
+                            }
+                        if (event.key.code == Keyboard::Num5)
+                            {
+                                state = State::PLAYING;
+                            }
+                        if (event.key.code == Keyboard::Num6)
+                            {
+                                state = State::PLAYING;
+                            }
+                        if (state == State::PLAYING)
+                            {
+                                // Prepare the level
+                                // We will modify the next two lines later
+                                arena.width = 500;
+                                arena.height = 500;
+                                arena.left = 0;
+                                arena.top = 0;
+                                // We will modify this line of code later
+                                int tileSize = 50;
+                                // Spawn the player in the middle of the arena
+                                player.spawn(arena, resolution, tileSize);
+                                // Reset the clock so there isn't a frame jump
+                                clock.restart();
+                            }
+                    }// End LEVELING up
 
             }// End game loop
 
