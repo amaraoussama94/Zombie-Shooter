@@ -1,7 +1,7 @@
 #main app
-Zombie:   ZombieArena.o 
-	g++ ZombieArena.o -o -lsfml-graphics -lsfml-window -lsfml-audio -lsfml-system  
-#  Player.o 
+Zombie:   ZombieArena.o  Player.o 
+	g++ ZombieArena.o Player.o -o Zombie -lsfml-graphics -lsfml-window -lsfml-audio -lsfml-system  
+
 
 ZombieArena.o:ZombieArena.cpp
 	g++ -c ZombieArena.cpp
