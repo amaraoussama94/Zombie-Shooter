@@ -17,7 +17,8 @@ int main()
 	resolution.x = VideoMode::getDesktopMode().width;
 	resolution.y = VideoMode::getDesktopMode().height;
 
-	RenderWindow window(VideoMode(resolution.x, resolution.y),"Zombie Arena");//, Style::Fullscreen
+	RenderWindow window(VideoMode(resolution.x, resolution.y),
+		"Zombie Arena");//, Style::Fullscreen
 
 	// Create a an SFML View for the main action
 	View mainView(sf::FloatRect(0, 0, resolution.x, resolution.y));
@@ -60,13 +61,15 @@ int main()
 			if (event.type == Event::KeyPressed)
 			{
 				// Pause a game while playing
-				if (event.key.code == Keyboard::Return && state == State::PLAYING)
+				if (event.key.code == Keyboard::Return &&
+					state == State::PLAYING)
 				{
 					state = State::PAUSED;
 				}
 
 				// Restart while paused
-				else if (event.key.code == Keyboard::Return && state == State::PAUSED)
+				else if (event.key.code == Keyboard::Return &&
+					state == State::PAUSED)
 				{
 					state = State::PLAYING;
 					// Reset the clock so there isn't a frame jump
@@ -74,7 +77,8 @@ int main()
 				}
 
 				// Start a new game while in GAME_OVER state
-				else if (event.key.code == Keyboard::Return && state == State::GAME_OVER)
+				else if (event.key.code == Keyboard::Return &&
+					state == State::GAME_OVER)
 				{
 					state = State::LEVELING_UP;
 				}
@@ -133,7 +137,7 @@ int main()
 				player.stopRight();
 			}
 
-		}// End ZQSD while playing
+		}// End QZSD while playing
 
 		 // Handle the levelling up state
 		if (state == State::LEVELING_UP)
@@ -208,7 +212,8 @@ int main()
 			mouseScreenPosition = Mouse::getPosition();
 
 			// Convert mouse position to world coordinates of mainView
-			mouseWorldPosition = window.mapPixelToCoords(Mouse::getPosition(), mainView);
+			mouseWorldPosition = window.mapPixelToCoords(
+				Mouse::getPosition(), mainView);
 
 			// Update the player
 			player.update(dtAsSeconds, Mouse::getPosition());

@@ -1,6 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-#include <cmath>
+#include<cmath>
 
 using namespace sf;
 
@@ -17,6 +17,7 @@ private:
 	Sprite m_Sprite;
 
 	// And a texture
+	// !!Watch this space!!
 	Texture m_Texture;
 
 	// What is the screen resolution
@@ -53,6 +54,9 @@ public:
 
 	void spawn(IntRect arena, Vector2f resolution, int tileSize);
 
+	//rest the game 
+	//void Player::resetPlayerStats()
+	
 	// Handle the player getting hit by a zombie
 	bool hit(Time timeHit);
 
@@ -104,7 +108,8 @@ public:
 	// Increase the maximum amount of health the player can have
 	void increaseHealthLevel(int amount);
 
-    //rest the game
-    void resetPlayerStats();
 
 };
+
+
+
