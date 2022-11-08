@@ -1,6 +1,6 @@
 #main app
-Zombie:   ZombieArena.o CreateBackground.o Player.o  
-	g++ ZombieArena.o CreateBackground.o Player.o  -o Zombie -lsfml-graphics -lsfml-window -lsfml-audio -lsfml-system  
+Zombie:   ZombieArena.o CreateBackground.o Player.o  TextureHolder.o 
+	g++ ZombieArena.o CreateBackground.o Player.o TextureHolder.o  -o Zombie -lsfml-graphics -lsfml-window -lsfml-audio -lsfml-system  
 
 
 ZombieArena.o:ZombieArena.cpp
@@ -15,6 +15,9 @@ Player.o:Player.cpp
 CreateBackground.o:CreateBackground.cpp  
 	g++ -c CreateBackground.cpp
 
+#Texture holder for  zombies
+TextureHolder.o:TextureHolder.cpp  
+	g++ -c TextureHolder.cpp
 clean:
 #cleanup all object file
 	  -rm *.o $(objects) 
