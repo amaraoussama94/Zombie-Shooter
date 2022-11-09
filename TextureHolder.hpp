@@ -3,7 +3,8 @@
 #define TEXTURE_HOLDER_H
 #include <SFML/Graphics.hpp>
 #include <map>
-
+ /*TextureHolder singleton as a neat way to hold just three textures that
+can be used for dozens or even thousands of zombies*/
 using namespace sf;
 using namespace std;
 

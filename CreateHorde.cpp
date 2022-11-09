@@ -45,7 +45,7 @@ Zombie* createHorde(int numZombies, IntRect arena)
         srand((int)time(0) * i * 2);
         int type = (rand() % 3);
         // Spawn the new zombie into the array
-        zombies[i].spawn(x, y, type, i);
+        zombies[i].spawn(x, y, type, i);//i is passed in as it is used as a unique seed that randomly varies the speed of a zombie
     }
     return zombies;
 }

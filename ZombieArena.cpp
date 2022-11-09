@@ -2,11 +2,14 @@
 
 #include "ZombieArena.hpp"
 #include "Player.hpp"
+#include "TextureHolder.hpp"
 
 using namespace sf;
 
 int main()
 {
+	// Here is the instance of TextureHolder
+	TextureHolder holder;
 	// The game will always be in one of four states
 	enum class State { PAUSED, LEVELING_UP, GAME_OVER, PLAYING };
 	// Start with the GAME_OVER state
@@ -17,8 +20,7 @@ int main()
 	resolution.x = VideoMode::getDesktopMode().width;
 	resolution.y = VideoMode::getDesktopMode().height;
 
-	RenderWindow window(VideoMode(resolution.x, resolution.y),
-		"Zombie Arena");//, Style::Fullscreen
+	RenderWindow window(VideoMode(resolution.x, resolution.y),"Zombie Arena");//, Style::Fullscreen
 
 	// Create a an SFML View for the main action
 	View mainView(sf::FloatRect(0, 0, resolution.x, resolution.y));
@@ -44,7 +46,10 @@ int main()
 	// Load the texture for our background vertex array
 	Texture textureBackground;
 	textureBackground.loadFromFile("graphics/background_sheet.png");
-
+	// Prepare for a horde of zombies
+	int numZombies;
+	int numZombiesAlive;
+	Zombie* zombies = nullptr;
 	// The main game loop
 	while (window.isOpen())
 	{
@@ -189,6 +194,12 @@ int main()
 				// Spawn the player in the middle of the arena
 				player.spawn(arena, resolution, tileSize);
 
+				// Create a horde of zombies
+				numZombies = 10;
+				// Delete the previously allocated memory (if it exists)
+				delete[] zombies;
+				zombies = createHorde(numZombies, arena);
+				numZombiesAlive = numZombies;
 				// Reset the clock so there isn't a frame jump
 				clock.restart();
 			}
@@ -223,6 +234,14 @@ int main()
 
 			// Make the view centre around the player				
 			mainView.setCenter(player.getCenter());
+			// Loop through each Zombie and update them
+			for (int i = 0; i < numZombies; i++)
+			{
+				if (zombies[i].isAlive())
+				{
+					zombies[i].update(dt.asSeconds(), playerPosition);
+				}
+			}
 		}// End updating the scene
 
 		 /*
@@ -242,6 +261,11 @@ int main()
 			// Draw the background
 			window.draw(background, &textureBackground);
 
+			// Draw the zombies
+			for (int i = 0; i < numZombies; i++)
+			{
+				window.draw(zombies[i].getSprite());
+			}
 			// Draw the player
 			window.draw(player.getSprite());
 		}
@@ -261,6 +285,8 @@ int main()
 		window.display();
 
 	}// End game loop
-
+	// Delete the previously allocated memory (if it exists)
+	delete[] zombies;
+	
 	return 0;
 }
