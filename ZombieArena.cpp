@@ -63,7 +63,8 @@ int main()
 	Time lastPressed;
 
 	// Hide the mouse pointer and replace it with crosshair
-	window.setMouseCursorVisible(true);
+	window.setMouseCursorVisible(false);//True  to make it appear again
+
 	Sprite spriteCrosshair;
 	Texture textureCrosshair = TextureHolder::GetTexture("graphics/crosshair.png");
 	spriteCrosshair.setTexture(textureCrosshair);
@@ -285,7 +286,7 @@ int main()
 				Mouse::getPosition(), mainView);
 
 			// Set the crosshair to the mouse world location
-			spriteCrosshair.setPosition(mouseWorldPosition);
+			spriteCrosshair.setPosition(mouseWorldPosition);//.x/2,mouseWorldPosition.y)
 
 			// Update the player
 			player.update(dtAsSeconds, Mouse::getPosition());
