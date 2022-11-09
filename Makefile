@@ -1,6 +1,6 @@
 #main app
-Zombie:   ZombieArena.o CreateBackground.o Player.o  TextureHolder.o  Zombie.o CreateHorde.o
-	g++ ZombieArena.o CreateBackground.o Player.o   TextureHolder.o Zombie.o CreateHorde.o -o Zombie -lsfml-graphics -lsfml-window -lsfml-audio -lsfml-system  
+Zombie:   ZombieArena.o CreateBackground.o Player.o  TextureHolder.o  Zombie.o CreateHorde. Bullet.o
+	g++ ZombieArena.o CreateBackground.o Player.o   TextureHolder.o Zombie.o CreateHorde.o Bullet.o -o Zombie -lsfml-graphics -lsfml-window -lsfml-audio -lsfml-system  
 
 
 ZombieArena.o:ZombieArena.cpp
@@ -28,6 +28,9 @@ Zombie.o:Zombie.cpp
 CreateHorde.o:CreateHorde.cpp  
 	g++ -c CreateHorde.cpp
 
+#Bullet class
+Bullet.o:Bullet.cpp  
+	g++ -c Bullet.cpp
 
 clean:
 #cleanup all object file
