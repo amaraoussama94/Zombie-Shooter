@@ -1,5 +1,5 @@
 #main app
-Zombie:   ZombieArena.o CreateBackground.o Player.o  TextureHolder.o  Zombie.o CreateHorde. Bullet.o
+Zombie:   ZombieArena.o CreateBackground.o Player.o  TextureHolder.o  Zombie.o CreateHorde.o Bullet.o
 	g++ ZombieArena.o CreateBackground.o Player.o   TextureHolder.o Zombie.o CreateHorde.o Bullet.o -o Zombie -lsfml-graphics -lsfml-window -lsfml-audio -lsfml-system  
 
 
