@@ -181,9 +181,9 @@ int main()
 			if (state == State::PLAYING)
 			{
 				// Prepare thelevel
-				// We will modify the next two lines later
-				arena.width = 500;
-				arena.height = 500;
+				// We will modify the next two lines later*/////*//*/*/*/**//*/***********************************************/
+				arena.width = resolution.x;//500
+				arena.height = resolution.y;//500
 				arena.left = 0;
 				arena.top = 0;
 
