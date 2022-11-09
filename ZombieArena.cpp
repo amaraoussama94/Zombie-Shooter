@@ -62,6 +62,12 @@ int main()
 	// When was the fire button last pressed?
 	Time lastPressed;
 
+	// Hide the mouse pointer and replace it with crosshair
+	window.setMouseCursorVisible(true);
+	Sprite spriteCrosshair;
+	Texture textureCrosshair = TextureHolder::GetTexture("graphics/crosshair.png");
+	spriteCrosshair.setTexture(textureCrosshair);
+	spriteCrosshair.setOrigin(25, 25);
 
 	// The main game loop
 	while (window.isOpen())
