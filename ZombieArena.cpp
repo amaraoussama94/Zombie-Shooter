@@ -284,6 +284,9 @@ int main()
 			mouseWorldPosition = window.mapPixelToCoords(
 				Mouse::getPosition(), mainView);
 
+			// Set the crosshair to the mouse world location
+			spriteCrosshair.setPosition(mouseWorldPosition);
+
 			// Update the player
 			player.update(dtAsSeconds, Mouse::getPosition());
 
@@ -333,8 +336,8 @@ int main()
 			{
 				window.draw(zombies[i].getSprite());
 			}
-			// Draw the player
-			window.draw(player.getSprite());
+			
+			// Draw the bullets
 			for (int i = 0; i < 100; i++)
 			{
 				if (bullets[i].isInFlight())
@@ -342,6 +345,12 @@ int main()
 					window.draw(bullets[i].getShape());
 				}
 			}
+
+			// Draw the player
+			window.draw(player.getSprite());
+
+			//Draw the crosshair
+			window.draw(spriteCrosshair);
 		}
 
 		if (state == State::LEVELING_UP)
