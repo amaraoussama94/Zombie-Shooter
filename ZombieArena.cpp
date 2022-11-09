@@ -74,6 +74,11 @@ int main()
 	// Create a couple of pickups
 	Pickup healthPickup(1);
 	Pickup ammoPickup(2);
+
+	// About the game
+	int score = 0;
+	int hiScore = 0;
+
 	// The main game loop
 	while (window.isOpen())
 	{
@@ -323,6 +328,54 @@ int main()
 			// Update the pickups
 			healthPickup.update(dtAsSeconds);
 			ammoPickup.update(dtAsSeconds);
+			// Collision detection
+			// Have any zombies been shot?
+			for (int i = 0; i < 100; i++)//every bullet
+			{
+				for (int j = 0; j < numZombies; j++)
+				{
+					if (bullets[i].isInFlight() && zombies[j].isAlive())
+					{
+						if (bullets[i].getPosition().intersects (zombies[j].getPosition()))//test for a rectangle intersection
+						{
+							// Stop the bullet
+							bullets[i].stop();
+							// Register the hit and see if it was a kill
+							if (zombies[j].hit())
+							{
+								// Not just a hit but a kill too
+								score += 10;
+								if (score >= hiScore)
+								{
+									hiScore = score;
+								}
+								numZombiesAlive--;
+								// When all the zombies are dead (again)
+								if (numZombiesAlive == 0) 
+								{
+									state = State::LEVELING_UP;
+								}
+							}
+						}
+					}
+				}
+			}// End zombie being shot
+		// Have any zombies touched the player
+		for (int i = 0; i < numZombies; i++)
+		{
+			if (player.getPosition().intersects(zombies[i].getPosition()) && zombies[i].isAlive())//test for a collision with the player
+			{
+				if (player.hit(gameTimeTotal))
+				{
+					// More here later
+				}
+				if (player.getHealth() <= 0)
+				{
+					state = State::GAME_OVER;
+				}
+			}
+		}// End player touched
+
 		}// End updating the scene
 
 		 /*
