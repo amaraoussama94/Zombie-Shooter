@@ -3,6 +3,7 @@
 #include "ZombieArena.hpp"
 #include "Player.hpp"
 #include "TextureHolder.hpp"
+#include "Bullet.hpp"
 
 using namespace sf;
 
@@ -45,10 +46,23 @@ int main()
 	VertexArray background;
 	// Load the texture for our background vertex array
 	Texture textureBackground = TextureHolder::GetTexture("graphics/background_sheet.png");
+
 	// Prepare for a horde of zombies
 	int numZombies;
 	int numZombiesAlive;
 	Zombie* zombies = nullptr;
+
+	// 100 bullets should do
+	Bullet bullets[100];
+	int currentBullet = 0;
+	int bulletsSpare = 24;
+	int bulletsInClip = 6;
+	int clipSize = 6;
+	float fireRate = 1;
+	// When was the fire button last pressed?
+	Time lastPressed;
+
+
 	// The main game loop
 	while (window.isOpen())
 	{
@@ -89,6 +103,26 @@ int main()
 
 				if (state == State::PLAYING)
 				{
+					// Reloading
+				if (event.key.code == Keyboard::R)
+				{
+					if (bulletsSpare >= clipSize)
+					{
+						// Plenty of bullets. Reload.
+						bulletsInClip = clipSize;
+						bulletsSpare -= clipSize;
+					}
+					else if (bulletsSpare > 0)
+					{
+						// Only few bullets left
+						bulletsInClip = bulletsSpare;
+						bulletsSpare = 0;
+					}
+					else
+					{
+					// More here soon?!
+					}
+				}
 				}
 
 			}
