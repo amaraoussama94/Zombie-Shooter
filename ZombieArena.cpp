@@ -567,20 +567,38 @@ int main()
 				window.draw(healthPickup.getSprite());
 			}
 
+			// Switch to the HUD view
+			window.setView(hudView);
+			// Draw all the HUD elements
+			window.draw(spriteAmmoIcon);
+			window.draw(ammoText);
+			window.draw(scoreText);
+			window.draw(hiScoreText);
+			window.draw(healthBar);
+			window.draw(waveNumberText);
+			window.draw(zombiesRemainingText);
+
 			//Draw the crosshair
 			window.draw(spriteCrosshair);
 		}
 
 		if (state == State::LEVELING_UP)
 		{
+			window.draw(spriteGameOver);
+			window.draw(levelUpText);
 		}
 
 		if (state == State::PAUSED)
 		{
+			window.draw(pausedText);
 		}
 
 		if (state == State::GAME_OVER)
 		{
+			window.draw(spriteGameOver);
+			window.draw(gameOverText);
+			window.draw(scoreText);
+			window.draw(hiScoreText);
 		}
 
 		window.display();
