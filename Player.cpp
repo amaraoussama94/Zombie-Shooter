@@ -182,7 +182,7 @@ void Player::update(float elapsedTime, Vector2i mousePosition)
 		mousePosition.x - m_Resolution.x/2 )
 		* 180) / 3.141;
 
-	m_Sprite.setRotation(angle*5);
+	m_Sprite.setRotation(angle );
 }
 
 void Player::upgradeSpeed()
