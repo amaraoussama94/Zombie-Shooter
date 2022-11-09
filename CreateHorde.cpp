@@ -1,9 +1,11 @@
 #include "ZombieArena.hpp"
 #include "Zombie.hpp"
-
+// the  collection of  zombie that should be cereated 
 Zombie* createHorde(int numZombies, IntRect arena)
 {
     Zombie* zombies = new Zombie[numZombies];
+    //We made the twenty-pixel adjustments to stop the zombies
+    //appearing on top of the walls:
     int maxY = arena.height - 20;
     int minY = arena.top + 20;
     int maxX = arena.width - 20;
@@ -12,9 +14,11 @@ Zombie* createHorde(int numZombies, IntRect arena)
     {
         // Which side should the zombie spawn
         srand((int)time(0) * i);
+        //use the side variable to decide whether the
+        //zombie spawns at the left, top, right, or bottom of the arena
         int side = (rand() % 4);
         float x, y;
-        switch (side)
+        switch (side)//The effect of this will be that each zombie can spawn randomly, anywhere on the outside edge of the arena
         {
             case 0:
             // left
