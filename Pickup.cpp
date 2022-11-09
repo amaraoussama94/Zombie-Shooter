@@ -60,6 +60,13 @@ bool Pickup::isSpawned()
     return m_Spawned;
 }
 
+int Pickup::gotIt()
+{
+	m_Spawned = false;
+	m_SecondsSinceDeSpawn = 0;
+	return m_Value;
+}
+
 void Pickup::update(float elapsedTime)
 {
     if (m_Spawned)
