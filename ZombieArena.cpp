@@ -91,7 +91,7 @@ int main()
 	Sprite spriteAmmoIcon;
 	Texture textureAmmoIcon = TextureHolder::GetTexture("graphics/ammo_icon.png");
 	spriteAmmoIcon.setTexture(textureAmmoIcon);
-	spriteAmmoIcon.setPosition(20, 980);
+	spriteAmmoIcon.setPosition(20, 668);
 	// Load the font
 	Font font;
 	font.loadFromFile("fonts/zombiecontrol.ttf");
@@ -107,7 +107,7 @@ int main()
 	gameOverText.setFont(font);
 	gameOverText.setCharacterSize(125);
 	gameOverText.setFillColor(Color::White);
-	gameOverText.setPosition(250, 850);
+	gameOverText.setPosition(250, 668);
 	gameOverText.setString("Press Enter to play");
 	// LEVELING up
 	Text levelUpText;
@@ -129,7 +129,7 @@ int main()
 	ammoText.setFont(font);
 	ammoText.setCharacterSize(55);
 	ammoText.setFillColor(Color::White);
-	ammoText.setPosition(200, 980);
+	ammoText.setPosition(200, 668);
 	// Score
 	Text scoreText;
 	scoreText.setFont(font);
@@ -141,7 +141,7 @@ int main()
 	hiScoreText.setFont(font);
 	hiScoreText.setCharacterSize(55);
 	hiScoreText.setFillColor(Color::White);
-	hiScoreText.setPosition(1400, 0);
+	hiScoreText.setPosition(880, 0);
 	std::stringstream s;
 	s << "Hi Score:" << hiScore;
 	hiScoreText.setString(s.str());
@@ -150,7 +150,7 @@ int main()
 	zombiesRemainingText.setFont(font);
 	zombiesRemainingText.setCharacterSize(55);
 	zombiesRemainingText.setFillColor(Color::White);
-	zombiesRemainingText.setPosition(1500, 980);
+	zombiesRemainingText.setPosition(980, 668);
 	zombiesRemainingText.setString("Zombies: 100");
 	// Wave number
 	int wave = 0;
@@ -158,13 +158,19 @@ int main()
 	waveNumberText.setFont(font);
 	waveNumberText.setCharacterSize(55);
 	waveNumberText.setFillColor(Color::White);
-	waveNumberText.setPosition(1250, 980);
+	waveNumberText.setPosition(740, 668);
 	waveNumberText.setString("Wave: 0");
 	// Health bar
 	RectangleShape healthBar;
 	healthBar.setFillColor(Color::Red);
-	healthBar.setPosition(450, 980);
+	healthBar.setPosition(450, 668);
 	// The main game loop
+
+
+	// When did we last update the HUD?
+	int framesSinceLastHUDUpdate = 0;
+	// How often (in frames) should we update the HUD
+	int fpsMeasurementFrameInterval = 1000;
 	while (window.isOpen())
 	{
 		/*
@@ -483,6 +489,37 @@ int main()
 				bulletsSpare += ammoPickup.gotIt();
 
 			}
+		
+			// size up the health bar
+			healthBar.setSize(Vector2f(player.getHealth() * 3, 50));
+			// Increment the number of frames since the previous update
+			framesSinceLastHUDUpdate++;
+			// re-calculate every fpsMeasurementFrameInterval frames
+			if (framesSinceLastHUDUpdate > fpsMeasurementFrameInterval)
+			{
+				// Update game HUD text
+				std::stringstream ssAmmo;
+				std::stringstream ssScore;
+				std::stringstream ssHiScore;
+				std::stringstream ssWave;
+				std::stringstream ssZombiesAlive;
+				// Update the ammo text
+				ssAmmo << bulletsInClip << "/" << bulletsSpare;
+				ammoText.setString(ssAmmo.str());
+				// Update the score text
+				ssScore << "Score:" << score;
+				scoreText.setString(ssScore.str());
+				// Update the high score text
+				ssHiScore << "Hi Score:" << hiScore;
+				hiScoreText.setString(ssHiScore.str());
+				// Update the wave
+				ssWave << "Wave:" << wave;
+				waveNumberText.setString(ssWave.str());
+				// Update the high score text
+				ssZombiesAlive << "Zombies:" << numZombiesAlive;
+				zombiesRemainingText.setString(ssZombiesAlive.str());
+				framesSinceLastHUDUpdate = 0;
+			}// End HUD update
 		}// End updating the scene
 
 		 /*
