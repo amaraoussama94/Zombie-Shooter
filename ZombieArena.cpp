@@ -175,6 +175,25 @@ int main()
 				player.stopRight();
 			}
 
+		// Fire a bullet
+		if (Mouse::isButtonPressed(sf::Mouse::Left))
+			{
+			if (gameTimeTotal.asMilliseconds()- lastPressed.asMilliseconds()> 1000 / fireRate && bulletsInClip > 0)//1,000 because this is the number of milliseconds in a second
+				{
+				// Pass the centre of the player
+				// and the centre of the cross-hair
+				// to the shoot function
+				bullets[currentBullet].shoot(player.getCenter().x, player.getCenter().y,mouseWorldPosition.x, mouseWorldPosition.y);
+				currentBullet++;
+				if (currentBullet > 99)
+					{
+					currentBullet = 0;
+					}
+				lastPressed = gameTimeTotal;
+				bulletsInClip--;
+				}
+			}// End fire a bullet
+
 		}// End QZSD while playing
 
 		 // Handle the levelling up state
@@ -273,6 +292,15 @@ int main()
 				if (zombies[i].isAlive())
 				{
 					zombies[i].update(dt.asSeconds(), playerPosition);
+				}
+			}
+
+			// Update any bullets that are in-flight
+			for (int i = 0; i < 100; i++)
+			{
+				if (bullets[i].isInFlight())
+				{
+					bullets[i].update(dtAsSeconds);
 				}
 			}
 		}// End updating the scene
