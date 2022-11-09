@@ -329,6 +329,13 @@ int main()
 			}
 			// Draw the player
 			window.draw(player.getSprite());
+			for (int i = 0; i < 100; i++)
+			{
+				if (bullets[i].isInFlight())
+				{
+					window.draw(bullets[i].getShape());
+				}
+			}
 		}
 
 		if (state == State::LEVELING_UP)
