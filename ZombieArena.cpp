@@ -255,6 +255,16 @@ int main()
 					state == State::GAME_OVER)
 				{
 					state = State::LEVELING_UP;
+					wave = 0;
+					score = 0;
+					// Prepare the gun and ammo for next game
+					currentBullet = 0;
+					bulletsSpare = 24;
+					bulletsInClip = 6;
+					clipSize = 6;
+					fireRate = 1;
+					// Reset the player's stats
+					player.resetPlayerStats();
 				}
 
 				if (state == State::PLAYING)
@@ -428,6 +438,8 @@ int main()
 				delete[] zombies;
 				zombies = createHorde(numZombies, arena);
 				numZombiesAlive = numZombies;
+				// Play the powerup sound
+				powerup.play();
 				// Reset the clock so there isn't a frame jump
 				clock.restart();
 			}

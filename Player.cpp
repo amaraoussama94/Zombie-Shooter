@@ -36,12 +36,12 @@ void Player::spawn(IntRect arena, Vector2f resolution, int tileSize)
 
 }
 
-/*void Player::resetPlayerStats()
+	void Player::resetPlayerStats()
     {
         m_Speed = START_SPEED;
         m_Health = START_HEALTH;
         m_MaxHealth = START_HEALTH;
-    }*/
+    }
 
 
 Time Player::getLastHitTime()

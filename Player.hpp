@@ -55,7 +55,7 @@ public:
 	void spawn(IntRect arena, Vector2f resolution, int tileSize);
 
 	//rest the game 
-	//void Player::resetPlayerStats()
+	void resetPlayerStats();
 	
 	// Handle the player getting hit by a zombie
 	bool hit(Time timeHit);
