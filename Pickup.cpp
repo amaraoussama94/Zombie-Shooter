@@ -26,10 +26,10 @@ Pickup::Pickup(int type)
 void Pickup::setArena(IntRect arena)
 {
     // Copy the details of the arena to the pickup's m_Arena //all 50*******************************************
-    m_Arena.left = arena.left + 100;
-    m_Arena.width = arena.width - 100;
-    m_Arena.top = arena.top + 100;
-    m_Arena.height = arena.height - 100;
+    m_Arena.left = arena.left + 200;
+    m_Arena.width = arena.width - 200;
+    m_Arena.top = arena.top + 200;
+    m_Arena.height = arena.height - 200;
     spawn();
 }
 

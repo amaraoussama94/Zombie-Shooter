@@ -422,8 +422,8 @@ int main()
 
 				// Prepare thelevel
 				// We will modify the next two lines later 
-				arena.width = 500* wave;//500
-				arena.height = 500* wave;//500
+				arena.width = 1000* wave;//500
+				arena.height = 1000 * wave;//500
 				arena.left = 0;
 				arena.top = 0;
 
