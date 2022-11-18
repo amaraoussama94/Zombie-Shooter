@@ -6,10 +6,10 @@ Zombie* createHorde(int numZombies, IntRect arena)
     Zombie* zombies = new Zombie[numZombies];
     //We made the twenty-pixel adjustments to stop the zombies
     //appearing on top of the walls:
-    int maxY = arena.height -100;/*all 20*/   /*1000 make all move  ************************************************************************************************/
-    int minY = arena.top + 100;
-    int maxX = arena.width - 100;
-    int minX = arena.left + 100;
+    int maxY = arena.height -200;/*all 20*/   /*1000 make all move  ************************************************************************************************/
+    int minY = arena.top + 200;
+    int maxX = arena.width - 200;
+    int minX = arena.left + 200;
     for (int i = 0; i < numZombies; i++)
     {
         // Which side should the zombie spawn
