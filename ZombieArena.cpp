@@ -540,8 +540,8 @@ int main()
 			 // Have any zombies touched the player			
 			for (int i = 0; i < numZombies; i++)
 			{
-				if (player.getPosition().intersects
-					(zombies[i].getPosition()) && zombies[i].isAlive())
+				 
+				if (player.getPosition().intersects (zombies[i].getPosition()) && zombies[i].isAlive())
 				{
 
 					if (player.hit(gameTimeTotal))

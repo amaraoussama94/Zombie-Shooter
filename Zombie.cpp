@@ -65,7 +65,7 @@ bool Zombie::isAlive()
 
 FloatRect Zombie::getPosition()
 {
-    return m_Sprite.getGlobalBounds();
+    return m_Sprite.getGlobalBounds();//getLocalBounds
 }
 
 Sprite Zombie::getSprite()
