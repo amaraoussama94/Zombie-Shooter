@@ -22,7 +22,7 @@ numbers  to choose leveling up </br>
 Enter to pause and start game </br>
 
 *Game name:   Zombie</br>
-*version :0.8</br>
+*version :01.0</br>
 
 
  <h3 align="left">features and game mechanics </h3>  :  
