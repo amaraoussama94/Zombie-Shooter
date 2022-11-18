@@ -66,7 +66,7 @@ bool Player::hit(Time timeHit)
 
 FloatRect Player::getPosition()
 {
-	return m_Sprite.getGlobalBounds();
+	return m_Sprite.getGlobalBounds();// 
 }
 
 Vector2f Player::getCenter()
