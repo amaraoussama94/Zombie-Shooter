@@ -186,37 +186,37 @@ int main()
 
 	// Prepare the hit sound
 	SoundBuffer hitBuffer;
-	hitBuffer.loadFromFile("sound/hit.wav");
+	hitBuffer.loadFromFile("sounds/hit.wav");
 	Sound hit;
 	hit.setBuffer(hitBuffer);
 	// Prepare the splat sound
 	SoundBuffer splatBuffer;
-	splatBuffer.loadFromFile("sound/splat.wav");
+	splatBuffer.loadFromFile("sounds/splat.wav");
 	Sound splat;
 	splat.setBuffer(splatBuffer);
 	// Prepare the shoot sound
 	SoundBuffer shootBuffer;
-	shootBuffer.loadFromFile("sound/shoot.wav");
+	shootBuffer.loadFromFile("sounds/shoot.wav");
 	Sound shoot;
 	shoot.setBuffer(shootBuffer);
 	// Prepare the reload sound
 	SoundBuffer reloadBuffer;
-	reloadBuffer.loadFromFile("sound/reload.wav");
+	reloadBuffer.loadFromFile("sounds/reload.wav");
 	Sound reload;
 	reload.setBuffer(reloadBuffer);
 	// Prepare the failed sound
 	SoundBuffer reloadFailedBuffer;
-	reloadFailedBuffer.loadFromFile("sound/reload_failed.wav");
+	reloadFailedBuffer.loadFromFile("sounds/reload_failed.wav");
 	Sound reloadFailed;
 	reloadFailed.setBuffer(reloadFailedBuffer);
 	// Prepare the powerup sound
 	SoundBuffer powerupBuffer;
-	powerupBuffer.loadFromFile("sound/powerup.wav");
+	powerupBuffer.loadFromFile("sounds/powerup.wav");
 	Sound powerup;
 	powerup.setBuffer(powerupBuffer);
 	// Prepare the pickup sound
 	SoundBuffer pickupBuffer;
-	pickupBuffer.loadFromFile("sound/pickup.wav");
+	pickupBuffer.loadFromFile("sounds/pickup.wav");
 	Sound pickup;
 	pickup.setBuffer(pickupBuffer);
 
