@@ -1,35 +1,75 @@
+# 🧟 Zombie Shooter
+
 <p align="center">
-    <img src="https://github.com/amaraoussama94/Zombie-Shooter/blob/main/game%200.2.png"  >  
+  <img src="https://github.com/amaraoussama94/Zombie-Shooter/blob/main/game%200.2.png" alt="Zombie Shooter Screenshot">
 </p>
-<h3 align="left">How to Install : </h3> 
 
+A fast-paced 2D zombie survival game built with **SFML**. Run, shoot, reload, and survive waves of zombies while leveling up and collecting pickups. Designed for Linux with cross-platform potential.
 
-install sfml :-sudo apt-get install libsfml-dev</br>
-install make :-sudo apt-get install  make</br>
-              -cd Zombie-Shooter </br>
-              -make</br>
-              -make clean</br>
-              -./Zombie</br>
+---
+## 🧩 Project Structure
 
+```text
+Zombie-Shooter/ 
+├── assets/ # Game textures, fonts, sounds (if added) 
+├── src/ # Core game source files 
+│ ├── Zombie.cpp # Main game loop and logic 
+│ ├── Player.cpp # Player movement, shooting, health 
+│ ├── ZombieArena.cpp # Arena generation and wave logic 
+│ ├── HUD.cpp # Heads-Up Display rendering 
+│ └── ... # Other gameplay modules 
+├── include/ # Header files   
+├── Makefile # Build instructions 
+├── README.md # Project documentation 
+└── game 0.2.png # Screenshot preview
 
-<h3 align="left">Generale info: </h3>    
-*Game control :
-escape to close  game</br>
-R :Reload </br>
-Z, Q,S,D : for up, lefet down right </br>
-mouse for  rotation and  shoting,</br>
-numbers  to choose leveling up </br>
-Enter to pause and start game </br>
+```
+---
+## 📦 Build & Run
+```bash
+git clone --recurse-submodules https://github.com/amaraoussama94/Zombie-Shooter.git
+cd Zombie-Shooter
+make run
+./Zombie
+```
+To clean build artifacts:
+```bash
+make clean
+make clean-all 
 
-*Game name:   Zombie</br>
-*version :01.0</br>
+```
+## 🎮 Game Controls
 
+| Action               | Key(s)                                |
+|----------------------|----------------------------------------|
+| Move                 | Z (Up), Q (Left), S (Down), D (Right) |
+| Aim & Shoot          | Mouse                                  |
+| Reload               | R                                      |
+| Pause / Start        | Enter                                  |
+| Level Up Selection   | Number keys (1–9)                      |
+| Exit Game            | Escape                                 |
 
- <h3 align="left">features and game mechanics </h3>  :  
-•A Heads Up Display (HUD) that shows details such as the score, high score,and bullets in clip, the number of bullets left, player health, and the number
-of zombies left to kill.</br>
-•The player will shoot zombies while frantically running away from them.</br>
-•Move around a scrolling world using the WASD keyboard keys while aiming the gun using the mouse.</br>
-•In-between each level, the player will choose a "level-up" that will affect the way the game needs to be played for the player to win.</br>
-•The player will need to collect "pick-ups" to restore health and ammunition.</br>
-•Each wave brings more zombies and a bigger arena to make it more challenging.</br>
+---
+
+## 📋 General Info
+
+- **Game Name:** Zombie Shooter  
+- **Version:** 0.1.0  
+- **Platform:** Linux (SFML-based)  
+- **Language:** C++  
+- **Graphics Library:** SFML 2.x / 3.0 compatible  
+
+---
+
+## 🧩 Features & Game Mechanics
+
+- 🧠 **Level-Up System**: Choose upgrades between waves to adapt your strategy.
+- 🧟 **Wave-Based Combat**: Each wave increases zombie count and arena size.
+- 💉 **Pickups**: Collect health and ammo to stay alive.
+- 🧭 **Scrolling World**: Navigate a dynamic map using keyboard and mouse.
+- 🎯 **Mouse Aiming**: Aim and shoot with precision using your mouse.
+- 📊 **HUD Display**:
+  - Score & High Score
+  - Bullets in clip & total ammo
+  - Player health
+  - Zombies remaining
