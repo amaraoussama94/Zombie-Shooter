@@ -25,17 +25,45 @@ Zombie-Shooter/
 
 ```
 ---
-## 📦 Build & Run
+## 🚀 Getting Started
+
+### 🔧 Prerequisites
+
+- **C++17-compatible compiler**
+- **CMake ≥ 3.24**
+- **SFML 2.5.1** (included as a submodule)
+
+### 🛠️ Build Instructions
+
+#### 🐧 Linux
+
 ```bash
-git clone --recurse-submodules https://github.com/amaraoussama94/Zombie-Shooter.git
-cd Zombie-Shooter
-make run
-./Zombie
+sudo apt install build-essential cmake libx11-dev libxrandr-dev libxcursor-dev libxi-dev libxinerama-dev libgl1-mesa-dev libudev-dev libopenal-dev libflac-dev libvorbis-dev libfreetype6-dev
+git clone --recurse-submodules https://github.com/yourusername/Thomas-Wass-Alone.git
+cd Thomas-Wass-Alone
+make
+./bin/Thomas_was_Alone
 ```
-To clean build artifacts:
+### 🪟 Windows Build Instructions (MSYS2 MINGW64)
+
+1. ✅ Install mingw-w64-x86_64-gcc, mingw-w64-x86_64-cmake ,mingw-w64-x86_64-make ,mingw-w64-x86_64-pkg-config ,mingw-w64-x86_64-freetype ,make
+2. ✅ git clone --recurse-submodules https://github.com/yourusername/Thomas-Wass-Alone.git
+3. ✅ under MSYS2 MINGW64
+
 ```bash
-make clean
-make clean-all 
+make run 
+```
+
+to clean build ( bin *.o )
+
+```bash
+make clean  
+```
+
+to clean all ( even sfml build  )
+
+```bash
+make clean-all
 
 ```
 ## 🎮 Game Controls
